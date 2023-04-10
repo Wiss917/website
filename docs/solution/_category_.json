@@ -1,0 +1,8 @@
+{
+  "label": "solutions",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "文档搭建过程中遇到的问题与解决方案"
+  }
+}
