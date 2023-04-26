@@ -42,6 +42,9 @@ tags: [css,html]
   </svg>
 ```
 
+## 注意事项
+1. 大部分svg属性都可以通过css类名进行封装复用，但是少数属性类似`text`元素的专有属性`x`、`y`这种与已有的css属性重名的只能在`text`元素的template中补充
+
 ## link
 [svg 实现 css 圆环](https://juejin.cn/post/6844903895135682574)
 
