@@ -18,6 +18,8 @@ fs.writeFile(`${folderName}${fileName}`, value, (err) => {
 });
 ```
 
+### create json file
+
 ## TODO
 1. [ ] nodejs文件后缀省略
 2. [ ] nodejs引入ts
