@@ -1,30 +1,37 @@
-#! /bin/bash
+#! /bin/zsh
 
 # This script was developed to simplify writing blogs
 
-generateBlogFile() {
-  fileLocation=blog/$1.md
+current_date=$(date +%F)
+
+# $1 blog name $2 create dir instead of single file
+createBlog() {
+  fileLocation=blog/$current_date-$1.md
 
   if [ "$2" = true ]; then
-    fileLocation=blog/$1/index.md
+    fileLocation=blog/$current_date-$1/index.md
   fi
 
-  # TODO 拆解字符串
+  # split the title and convert to post title
+  post_title=""
 
-  cat >> $fileLocation <<EOF
+  # if bash version < 4, the convert code cannot work
+  # IFS="-" read -ra words <<<"$1"
+  # for i in "${words[@]}"; do
+  #   post_title+=${(C)$i}
+  # done
+
+  cat >>$fileLocation <<EOF
 ---
 slug: $1
-title: 
+title: $post_title
 authors: wisszeix
 tags: []
 ---
 EOF
 }
 
-current_date=$(date +%F)
-
 read -p $'input blog title \n NOTE: Use symbol-splicing between words. e.g.: this-is-my-blog-name\n' title
-blog_title=${current_date}-${title}
 
 kinds=("simple" "complex")
 # ps3 select tip
@@ -32,15 +39,15 @@ PS3="blog type: "
 select kind in "${kinds[@]}"; do
   case $kind in
   "simple")
-    echo "creating ${blog_title} blog"
-    generateBlogFile $blog_title
+    echo creating $title blog
+    createBlog $title
 
     break
     ;;
   "complex")
-    echo "creating blog/$blog_title directory with a index.md"
-    mkdir "blog/${blog_title}"
-    generateBlogFile "$blog_title" true
+    echo creating blog/$title directory with a index.md
+    mkdir blog/$current_date-$title
+    createBlog $title true
     break
     ;;
   *)
