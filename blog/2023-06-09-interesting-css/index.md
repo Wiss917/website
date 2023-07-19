@@ -1,6 +1,6 @@
 ---
-slug: interesting-css-skill
-title: interesting css skill
+slug: interesting-css
+title: interesting css
 authors: wisszeix
 tags: [css, learning]
 ---
@@ -17,6 +17,15 @@ tags: [css, learning]
 
 ## animation
 
-### transform
+### 动画状态 animation-fill-mode
+
+## transform
+
+### translate 上下偏移
+
+### scale 布局缩放
 
 #### [卡片翻转](https://juejin.cn/post/6969483139701800974)
+
+
+

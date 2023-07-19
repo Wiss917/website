@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 # This script was developed to simplify writing blogs
 
